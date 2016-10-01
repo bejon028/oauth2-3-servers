@@ -17,6 +17,7 @@
     <h1>Profile</h1>
     <h2>Welcome </h2>
     <h3><a href="logout">Logout</a></h3>
+    <h3><a href="http://localhost:8082/">Kona CVS</a></h3>
 
     <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>

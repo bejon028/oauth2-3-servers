@@ -3,9 +3,7 @@ buildscript {
 		springBootVersion = '1.4.1.RELEASE'
 	}
 	repositories {
-		maven {
-			url "http://nexus.konasldev.com:8081/nexus/content/repositories/gradle-plugins/"
-		}
+		mavenCentral()
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -26,13 +24,7 @@ sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
 repositories {
-	mavenLocal()
-	maven{url "http://nexus.konasldev.com:8081/nexus/content/repositories/jcenter/"}
-	maven { url "http://nexus.konasldev.com:8081/nexus/content/repositories/central" }
-	maven { url "http://nexus.konasldev.com:8081/nexus/content/repositories/repository.springframework.maven.snapshot/" }
-	maven { url "http://nexus.konasldev.com:8081/nexus/content/repositories/spring-milestone/" }
-	maven { url "http://nexus.konasldev.com:8081/nexus/content/repositories/thirdparty" }
-
+	mavenCentral()
 }
 
 dependencies {
