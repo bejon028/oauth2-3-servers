@@ -19,7 +19,6 @@ public class CustomSpringSecurity extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         // @formatter:off
         http
-                .httpBasic().and()
                 .logout().and()
                 .authorizeRequests()
                 .antMatchers(
@@ -38,7 +37,10 @@ public class CustomSpringSecurity extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin().and()
                 .csrf()
-                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                .and()
+                .exceptionHandling()
+                .authenticationEntryPoint(new UnauthorizedEndpoint());
         // @formatter:on
     }
 }

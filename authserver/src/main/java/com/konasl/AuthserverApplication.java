@@ -91,7 +91,9 @@ public class AuthserverApplication extends WebMvcConfigurerAdapter {
                     .logoutSuccessUrl("/")
                     .and()
                     .csrf()
-                    .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+                    .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                    .and()
+                    .exceptionHandling().authenticationEntryPoint(new UnauthorizedEndpoint());
             // @formatter:on
         }
 
