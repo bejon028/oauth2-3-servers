@@ -1,0 +1,119 @@
+<div class="row">
+    <h3 class="page-header"> {{reportTitle}}</h3>
+</div>
+<br/>
+<div class="row">
+    <form class="form-horizontal">
+    <table class="table-row">
+    <tbody>
+        <tr>
+            <td class="col-sm-9">
+                <h4>Search Criteria</h4>
+            </td>
+            <td class="col-sm-3">
+                <label>Add Filter </label>
+                <select ng-change="addField()" ng-model="searchObj">
+                    <option ng-repeat="col in columns" ng-disabled="!col.selectable" value={{col}}>{{col.columnName}}</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+    </form>
+
+    <form class="form-horizontal" name="mForm" novalidate>
+        <table class="table-search">
+            <tbody>
+            <tr>
+                <td  class="col-sm-2"></td>
+                <td class="col-sm-2"></td>
+                <td class="col-sm-2"></td>
+                <td class="col-sm-2"></td>
+                <td class="col-sm-1"></td>
+            </tr>
+            <tr data-ng-repeat="choice in fields">
+                <th ng-if="choice.valueType=='TEXT'" class="col-sm-2">{{choice.columnName}}</th>
+                <td ng-if="choice.valueType=='TEXT'" class="col-sm-3">
+                    <input type="text" class="form-control input-sm" ng-model="searchParams[choice.columnNameJson]" placeholder="{{choice.columnName}}">
+                    <input type="hidden" class="form-control input-sm" ng-model="searchCriteria[choice.columnNameJson]" ng-init="searchCriteria[choice.columnNameJson] = '='">
+                </td>
+                <td ng-if="choice.valueType=='TEXT'" class="col-sm-2"></td>
+                <td ng-if="choice.valueType=='TEXT'" class="col-sm-2"></td>
+
+                <th ng-if="choice.valueType=='COMB'" class="col-sm-2">{{choice.columnName}}</th>
+                <td ng-if="choice.valueType=='COMB'" class="col-sm-3">
+                    <select class="form-control input-sm" ng-model="searchParams[choice.columnNameJson]"
+                            ng-options="o.value as o.value for o in choice.criteriaOptionResponseList" required></select>
+                </td>
+                <td ng-if="choice.valueType=='COMB'" class="col-sm-2"></td>
+                <td ng-if="choice.valueType=='COMB'" class="col-sm-2"></td>
+
+
+                <th ng-if="choice.valueType=='DATE'" class="col-sm-2">{{choice.criteriaOptionResponseList[0].value}}</th>
+                <td ng-if="choice.valueType=='DATE'" class="col-sm-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm" uib-datepicker-popup="yyyy-MM-dd"
+                               ng-model="searchParams[choice.criteriaOptionResponseList[0].valueJson]"
+                               is-open='isApplyDatePickerOpen' ng-click="isApplyDatePickerOpen=true"/>
+                                  <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default btn-sm" ng-click="isApplyDatePickerOpen=true"><i
+                                            class="glyphicon glyphicon-calendar"></i></button>
+                                  </span>
+                    </div>
+                    <input type="hidden" class="form-control input-sm" ng-model="searchCriteria[choice.criteriaOptionResponseList[0].valueJson]" ng-init="searchCriteria[choice.criteriaOptionResponseList[0].valueJson] = '>='">
+                </td>
+                <th ng-if="choice.valueType=='DATE'" class="col-sm-2">{{choice.criteriaOptionResponseList[1].value}}</th>
+                <td ng-if="choice.valueType=='DATE'" class="col-sm-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm" uib-datepicker-popup="yyyy-MM-dd"
+                               ng-model="searchParams[choice.criteriaOptionResponseList[1].valueJson]"
+                               is-open='isApplyDatePickerOpen2' ng-click="isApplyDatePickerOpen2=true"/>
+                                  <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default btn-sm" ng-click="isApplyDatePickerOpen2=true"><i
+                                            class="glyphicon glyphicon-calendar"></i></button>
+                                  </span>
+                    </div>
+                    <input type="hidden" class="form-control input-sm" ng-model="searchCriteria[choice.criteriaOptionResponseList[1].valueJson]" ng-init="searchCriteria[choice.criteriaOptionResponseList[1].valueJson] = '<='">
+                </td>
+                <td class="col-sm-1">
+                    <button type="button" class="btn  btn-icon-sm " ng-click="removeChoice($index,choice)">
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" class="tr" ng-show="fields.length">
+                    <button ng-click="resetSearchFields()" class="btn  btn-icon-sm " ng-disabled="mForm.$invalid">{{"RESET"|translate}}
+                    </button>
+                    <button ng-click="submit()" class="btn  btn-icon-sm " ng-disabled="mForm.$invalid">{{"SEARCH"|translate}}
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+<br/>
+<div class="row">
+    <button ng-click="selectColumns()" class="btn  btn-icon-sm " ng-disabled="mForm.$invalid">Select Columns...</button>
+</div>
+<br/>
+<div class="row" ng-show="loading">
+    <span style="color: #269abc; font-weight: bold">Loading...</span>
+</div>
+<div class="row" ng-show="!loading">
+    <table id="fixTable" class="table-row" style="width: 1800px">
+        <thead>
+        <tr>
+            <th ng-show="col.selected" ng-repeat="col in fieldsList" on-finish-render="ngRepeatFinished">{{col.fieldName}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="d in data" on-finish-render="ngRepeatFinished">
+            <td ng-show="col.selected" ng-repeat="col in fieldsList"><span ng-if="col.type!='DATE'">{{d[col.fieldNameJson]}}</span><span ng-if="col.type=='DATE'">{{d[col.fieldNameJson]| oddate}}</span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br/>
+<div ng-include src="'app/templates/common/pagination.html'"></div>

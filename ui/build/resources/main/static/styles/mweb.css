@@ -1,0 +1,130 @@
+@charset "utf-8";
+
+*,
+*:after,
+*:before {box-sizing: border-box;}
+
+.img-max{width:100%}
+
+*{margin:0; padding:0;}
+body{background:#eaeff2}
+h1, h2 ,h3{margin:0;}
+table{width:100%;font-size:13px;}
+table a{cursor:pointer; }
+
+body, table, button, input, select{font-family: "Nanum Gothic","나눔고딕", "nanum-lt" ,sans-serif; color:#2e2e2e;}
+ul,li{list-style: none}
+a{color:#2e2e2e;text-decoration:none;cursor:pointer; }
+a:hover, a:focus{text-decoration:none}
+em{font-style:normal;}
+address{margin:0;}
+p{margin:0;}
+label{font-weight: normal}
+/*fieldset, button{border:0;} */
+.blind, legend,caption { display:none; position:absolute; font-size:0; width:0; height:0;}
+button{background:transparent; border:0;}
+
+input[type="text"]::-webkit-input-placeholder,
+input[type="password"]::-webkit-input-placeholder{color:#BBBBBB;font-weight:normal;}
+input[type="text"]::-moz-input-placeholder,
+input[type="password"]::-moz-input-placeholder{color:#BBBBBB;font-weight:normal;}
+
+textarea::-webkit-input-placeholder{color:#BBBBBB;font-weight:normal; font-size:13px}
+textarea::-moz-input-placeholder{color:#BBBBBB;font-weight:normal; font-size:13px}
+.text-area{overflow-y: auto; width: 80%; height:250px;  border: 1px solid rgba(94,116,139, .3); resize: none; font-size:13px; padding:5px 20px 5px 12px;}
+
+.tl{text-align:left!important}
+
+.btn-list{
+	color:#fff;
+	background:#505c78;
+	font-size:14px!important;
+	line-height:26px!important;
+	width:120px;
+}
+
+
+/*CONTAINER*/
+.container .title{width:54px; height:76px; border-radius:0 0 27px 27px; background:#f86468 url(../img/title-sprite.png) no-repeat; overflow:hidden}
+.container .title h2{position:absolute; left:63px; top:13px; color:#fff; font-size:30px; font-weight:500;}
+.container .title.t-login{background-position: 10px 25px;}
+.container .title.t-sub01{background-position: 10px -45px;}
+.container .title.t-sub02{background-position: 10px -117px;}
+.container .title.t-sub03{background-position: 10px -185px;}
+.container .title.t-sub04{background-position: 10px -265px;}
+
+/*LOCATION*/
+.container .location{text-align:right; font-size:12px;margin-bottom:40px }
+.container .location span{color:#888e92;}
+.container .location span:first-child{background: url(../img/icon-home.png) left 50% no-repeat; padding-left:22px;padding-top:3px;}
+.container .location span:last-child{color:#000;}
+.container .location em{display:inline-block; padding:0 5px; font-size:14px; color:#c1c1c1; }
+
+/*LOGIN*/
+fieldset.login{position:absolute; left:50%; top:50%;margin:-123px 0 0 -287px; width:573px; color:#fff;}
+
+fieldset.login dl{position:relative;background:#ed193a url(../img/bg-login.png)-200% -200%; }
+fieldset.login dt{box-sizing:border-box; background:url(../img/bg-konaMoney.png) 16px 90px no-repeat;}
+fieldset.login dt .t-text{text-align:center; font-size:22px;padding:15px 0 25px; font-weight:normal}
+fieldset.login dt input[type="text"],
+fieldset.login dt input[type="password"]{margin:0 0 0 154px;display:block; border:0; margin-bottom:1px; color:#282727; padding:0 12px; font-size:14px; width:267px; height:45px;font-weight:normal}
+fieldset.login dt input[type="text"]::-webkit-input-placeholder,
+fieldset.login dt input[type="password"]::-webkit-input-placeholder{color:#BBBBBB;font-weight:normal;}
+fieldset.login dd.login-btn{position:absolute; right:20px; top:102px;}
+fieldset.login dd.login-btn button{background:#1b2e3b url(../img/icon-login.png) 50% 20px no-repeat; padding-top:30px; font-family:Tahoma; border-radius:3px; width:125px; height:91px; font-size:20px; color:#fff;}
+fieldset.login dd.saveId{margin-top:5px; font-size:12px; padding:0 0 10px 154px;}
+fieldset.login dd.saveId input{vertical-align: middle; width:15px; height:15px; margin-right:5px;}
+
+
+
+/*======================================================
+						ADDRESS 팝업
+======================================================*/
+/*업그레이드 방법*/
+.zip-default-text{background:#dfe4e6 url(../img/img-addressUp-text.png) 26px 29px no-repeat; border-top:1px solid #cfd3d5; border-bottom:1px solid #cfd3d5; margin:10px 0 35px; padding:15px 20px 15px 145px;}
+.zip-default-text > ul > li{font-size:12px; color:#2e3132; line-height:20px; font-weight:bold}
+.zip-default-text > ul > li > ol{margin-top:20px;}
+.zip-default-text > ul > li > ol > li{font-size:12px; color:#7b888f;line-height:24px; font-weight:normal}
+.zip-default-text > ul > li > em, .default-text > ul > li > ol > li > em{color:#f86468;}
+
+/*팝업*/
+.popup-header{position:relative; height:57px; background:#ed193a url(../img/bg-login.png)-100% -100%;}
+.popup-header h1{position:absolute; left:10px; top:5px;}
+.popup-header .title{position:absolute; top:15px; right:15px; color:#fff; font-size:23px}
+
+.popup-containerWrap{margin:1px 5px 0;}
+
+.zip-tabMenu{margin-bottom:1px;}
+.zip-tabMenu li{float:left;background:#dfe4e6;font-size:14px; height:43px;width:49.89%; margin-left:0.219%; text-align:center}
+.zip-tabMenu li:first-child{margin-left:0;}
+.zip-tabMenu li a{color:#7b888f;line-height: 43px; display:block; }
+.zip-tabMenu li a.on{background:#cfd3d5; color:#2e3132; }
+
+.zip-panel .zip-search{padding:10px; background:#cfd3d5; border-top:1px solid #cfd3d5; border-bottom:1px solid #cfd3d5;}
+
+.zip-panel .zip-table-code tbody th{text-align:right;font-weight:normal}
+.zip-panel .zip-table-code tbody th em{color:#f86468;font-weight:bold}
+.zip-panel .zip-table-code tbody td{text-align:left;}
+.zip-panel .zip-table-code tbody th,
+.zip-panel .zip-table-code tbody td{padding:2px 6px;}
+
+.zip-codeList{margin:20px 0 15px;height:180px; overflow-y:auto; background:#fff;padding:8px 8px 0;}
+.zip-codeList li{border-top:1px dashed #e2e5e7; font-size:12px; padding:8px 2px;}
+.zip-codeList li span{display:inline-block; padding:0 12px 0 0;}
+.zip-codeList li a{cursor:pointer}
+.zip-codeList li:first-child{border-top:none;}
+
+.zip-manually{display:none;}
+
+/*ERROR MESSAGE*/
+.errorMessage{padding:5% 0 5% 28%;background:url(../img/bg-errorMessage.png) 20% 50% no-repeat; margin-top:20%;border-top:1px solid #d0d4d7;border-bottom:1px solid #d0d4d7; font-size:25px; color:#000;}
+
+/*비밀번호 재전송*/
+.pwreSubmit dt{ margin-bottom:2px; line-height:42px;width:180px;text-align:right;}
+.pwreSubmit dd{margin-top:-45px; margin-left:195px; text-align:left;line-height:42px;}
+
+
+/* TODAY CHECK */
+.todayCheck{position:relative;background:#505c78; color:#fff;padding:5px 0 5px 5px;}
+.todayCheck button{position:absolute; right:10px;}
+

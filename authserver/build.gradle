@@ -1,0 +1,50 @@
+buildscript {
+	ext {
+		springBootVersion = '1.4.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+apply plugin: 'idea'
+
+jar {
+	baseName = 'authserver'
+	version = '0.0.1-SNAPSHOT'
+}
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+//repoUrl = [
+//		jcenter     : "http://nexus.konasldev.com:8081/nexus/content/repositories/jcenter/",
+//		central        : "http://nexus.konasldev.com:8081/nexus/content/repositories/central",
+//		springSnapshot : "http://nexus.konasldev.com:8081/nexus/content/repositories/repository.springframework.maven.snapshot/",
+//		springMilestone: "http://nexus.konasldev.com:8081/nexus/content/repositories/spring-milestone/",
+//		thirdparty     : "http://nexus.konasldev.com:8081/nexus/content/repositories/thirdparty"
+//]
+repositories {
+	mavenCentral()
+
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version:'1.4.0.RELEASE'
+    compile group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version:'2.0.10.RELEASE'
+    compile group: 'org.springframework.security', name: 'spring-security-jwt', version:'1.0.4.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'1.4.0.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version:'1.4.0.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version:'1.4.0.RELEASE'
+    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'1.4.0.RELEASE') {
+exclude(module: 'commons-logging')
+    }
+    testCompile(group: 'org.apache.httpcomponents', name: 'httpclient', version:'4.5.2') {
+exclude(module: 'commons-logging')
+    }
+}

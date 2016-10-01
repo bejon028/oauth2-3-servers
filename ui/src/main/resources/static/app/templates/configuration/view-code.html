@@ -1,0 +1,50 @@
+<div class="row">
+    <h3 class="page-header">{{"CODE_TITLE_VIEW" | translate}}</h3>
+</div>
+<br>
+<div class="row">
+<table class="table-row" style="width:700px">
+    <colgroup>
+        <col width="30%">
+    </colgroup>
+    <tr>
+        <th>{{"CODE"|translate}} 1</th>
+        <td>{{data.code1}}</td>
+    </tr>
+    <tr>
+        <th>{{"CODE"|translate}} 2</th>
+        <td>{{data.code2}}</td>
+    </tr>
+    <tr>
+        <th>{{"CODE"|translate}} 3</th>
+        <td>{{data.code3}}</td>
+    </tr>
+    <tr>
+        <th>{{"CODE_DISPLAY_NAME"|translate}} 3</th>
+        <td>{{data.codeDisplayName}}</td>
+    </tr>
+    <tr>
+        <th>{{"CODE_DATA"|translate}} 1</th>
+        <td>{{data.codeData1}}</td>
+    </tr>
+    <tr>
+        <th>{{"CODE_DATA"|translate}} 2</th>
+        <td>{{data.codeData2}}</td>
+    </tr>
+    <tr>
+        <th>{{"CODE_DESCRIPTION"|translate}} 2</th>
+        <td>{{data.codeDescription}}</td>
+    </tr>
+
+    <tr>
+        <th>{{"ALIGN_ORDER"|translate}}</th>
+        <td>{{data.alignOrder}}</td>
+    </tr>
+    <tr>
+        <th>{{"ACTIVE"|translate}}</th>
+        <td>{{data.use}}</td>
+    </tr>
+</table>
+    </div>
+<br>
+<div ng-include src="'app/templates/common/controls/edit-view-list.html'"></div>

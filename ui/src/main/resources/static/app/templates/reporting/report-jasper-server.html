@@ -1,0 +1,90 @@
+
+<div class="row">
+    <h3 class="page-header">{{ title | translate}}</h3>
+</div>
+
+<div class="row">
+    <form class="form-horizontal">
+        <table class="table-row">
+            <tbody>
+            <tr>
+                <td class="col-sm-9">
+                    <h4>Search Criteria</h4>
+                </td>
+                <td class="col-sm-3">
+                    <label>Add Filter </label>
+                    <select ng-change="addFilter()" ng-model="attributeId">
+                        <option ng-repeat="attribute in attributes" ng-disabled="!attribute.selectable" value="{{attribute.id}}">{{attribute.columnName}}</option>
+                    </select>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <form class="form-horizontal" name="mForm" novalidate>
+        <table class="table-search">
+            <tbody>
+            <tr>
+                <td class="col-sm-2"></td>
+                <td class="col-sm-2"></td>
+                <td class="col-sm-8"></td>
+            </tr>
+            <tr data-ng-repeat="choice in attributes">
+                <th class="col-sm-2" ng-if="!choice.selectable">{{choice.columnName}}</th>
+
+                <td ng-if="choice.type=='TEXT' && !choice.selectable" class="col-sm-2">
+                    <input type="text" class="form-control input-sm" ng-model="searchParams[choice.id]" placeholder="{{choice.columnName}}">
+                </td>
+                <td ng-if="choice.type=='NUMBER' && !choice.selectable" class="col-sm-2">
+                    <input type="number" class="form-control input-sm" ng-model="searchParams[choice.id]" placeholder="{{choice.columnName}}">
+                </td>
+                <td ng-if="choice.type=='DATE' && !choice.selectable" class="col-sm-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-sm" uib-datepicker-popup="yyyy-MM-dd"
+                               ng-model="searchParams[choice.id]"
+                               is-open='isApplyDatePickerOpen' ng-click="isApplyDatePickerOpen=true"/>
+                                  <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default btn-sm" ng-click="isApplyDatePickerOpen=true"><i
+                                            class="glyphicon glyphicon-calendar"></i></button>
+                                  </span>
+                    </div>
+                </td>
+
+
+                <td class="col-sm-8" ng-if="!choice.selectable">
+                    <button type="button" class="btn  btn-icon-sm " ng-click="choice.selectable=true; checkSubmitRowEnable(choice.id);">
+                        <span class="glyphicon glyphicon-minus"></span>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="tr">
+                    <button  ng-show="submitRowEnable" type="reset" class="btn  btn-icon-sm " ng-disabled="mForm.$invalid">{{"RESET"|translate}}
+                    </button>
+                    <button ng-click="generateReport()" class="btn  btn-icon-sm " ng-disabled="mForm.$invalid">{{"GENERATE_REPORT"|translate}}
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" class="tr">
+
+                    <button ng-click="saveAsPdf()" class="btn  btn-icon-sm " ng-disabled="mForm.$invalid">{{"SAVE_AS_PDF"|translate}}
+                    </button>
+                    <button ng-click="saveAsExcel()" class="btn  btn-icon-sm " ng-disabled="mForm.$invalid">{{"SAVE_AS_EXCEL"|translate}}
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+<br/>
+<br/>
+
+<div class="row" style="text-align: center" ng-show="loading">
+    <label style="font-size: 20px">Loading...</label>
+</div>
+<div class="row" id="html-view" ng-hide="loading">
+</div>

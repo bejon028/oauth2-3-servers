@@ -1,0 +1,175 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--<title>Hello AngularJS</title>-->
+<!--&lt;!&ndash; Latest compiled and minified CSS &ndash;&gt;-->
+<!--<link rel="stylesheet"-->
+			<!--href="css/bootstrap.min.css"-->
+			<!--integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"-->
+			<!--crossorigin="anonymous">-->
+
+<!--&lt;!&ndash; Optional theme &ndash;&gt;-->
+<!--<link rel="stylesheet"-->
+			<!--href="css/bootstrap-theme.min.css"-->
+			<!--integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"-->
+			<!--crossorigin="anonymous">-->
+
+
+
+<!--<style type="text/css">-->
+
+<!--[ng\:cloak], [ng-cloak], .ng-cloak {-->
+	<!--display: none !important;-->
+<!--}-->
+<!--</style>-->
+<!--</head>-->
+
+<!--<body ng-app="hello" ng-cloak class="ng-cloak">-->
+	<!--<div ng-controller="navigation as nav" class="container">-->
+		<!--<ul class="nav nav-pills" role="tablist">-->
+			<!--<li ng-class="{active:nav.tab('home')}"><a href="#/">home</a></li>-->
+			<!--<li ng-class="{active:nav.tab('navigation')}"><a href="login">login</a></li>-->
+			<!--<li ng-show="authenticated"><a href="" ng-click="nav.logout()">logout</a></li>-->
+		<!--</ul>-->
+	<!--</div>-->
+	<!--<div ng-view class="container"></div>-->
+	<!--<script src="js/lib/jquery.min.js"></script>-->
+	<!--<script src="js/lib/angular.min.js"></script>-->
+	<!--<script src="js/lib/angular-route.min.js"></script>-->
+	<!--<script src="js/lib/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+	<!--<script src="js/hello.js"></script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="favicon.ico">
+
+	<title>CVS | KONA EMV</title>
+
+	<link rel="stylesheet" href="libs/bootstrap-3.3.5/css/bootstrap.css"/>
+	<link rel="stylesheet" href="libs/bootstrap-3.3.5/css/bootstrap-theme.css"/>
+	<link href="styles/theme.css" rel="stylesheet">
+	<link href="styles/common.css" rel="stylesheet">
+	<link href="styles/custom.css" rel="stylesheet">
+	<link href="styles/mweb.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="assets/abn-tree/dist/abn_tree.css">
+	<link href="assets/bootstrap-calendar/css/bootstrap-year-calendar.css" rel="stylesheet">
+	<link href="assets/angular-multiselect/isteven-multi-select.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="assets/dnd-tree/dist-dnd-tree/ng-tree-dnd.css">
+
+	<script type="text/javascript" src="libs/jQuery/jquery-2.1.3.js"></script>
+	<script type="text/javascript" src="libs/jQuery/tableHeadFixer.js"></script>
+	<script type="text/javascript" src="libs/angular-1.4.8/angular.min.js"></script>
+	<script type="text/javascript" src="libs/angular-1.4.8/angular-animate.js"></script>
+	<script type="text/javascript" src="libs/angular-1.4.8/angular-resource.js"></script>
+	<script type="text/javascript" src="libs/angular-1.4.8/angular-route.min.js"></script>
+	<script type="text/javascript" src="libs/angular-1.4.8/angular-cookies.min.js"></script>
+	<script type="text/javascript" src="libs/bootstrap-3.3.5/js/ui-bootstrap-tpls-0.14.1.js"></script>
+
+	<script type="text/javascript" src="assets/angular-calendar/dist/moment.min.js"></script>
+	<script type="text/javascript" src="assets/angular-calendar/dist/interact.min.js"></script>
+	<script type="text/javascript" src="assets/angular-calendar/dist/angular-bootstrap-calendar-tpls.js"></script>
+	<script type="text/javascript" src="assets/angular-multiselect/isteven-multi-select.js"></script>
+	<script type="text/javascript" src="assets/bootstrap-calendar/js/bootstrap-year-calendar.js"></script>
+
+	<script type="text/javascript" src="assets/dnd-tree/dist-dnd-tree/ng-tree-dnd.debug.js"></script>
+	<script type="text/javascript" src="assets/dnd-tree/dist-dnd-tree/ng-tree-dnd.js"></script>
+	<script type="text/javascript" src="assets/dnd-tree/filter/angular-tree-dnd-filter.js"></script>
+
+	<script type="text/javascript" src="app/components/app.js"></script>
+	<script type="text/javascript" src="app/components/resourcePaths.js"></script>
+	<script type="text/javascript" src="assets/abn-tree/dist/abn_tree_directive.js"></script>
+	<script type="text/javascript" src="app/components/directives/nodeList.js"></script>
+	<script type="text/javascript" src="app/components/directives/finishRenderer.js"></script>
+	<script type="text/javascript" src="app/components/reportProfiles.js"></script>
+	<script type="text/javascript" src="app/components/navigationProfile.js"></script>
+	<script type="text/javascript" src="app/components/optionCodes.js"></script>
+	<script type="text/javascript" src="app/components/controllers/logs-transaction.js"></script>
+	<script type="text/javascript" src="app/components/controllers/reporting-common.js"></script>
+	<script type="text/javascript" src="app/components/controllers/reporting-jasper-server.js"></script>
+	<script type="text/javascript" src="app/components/controllers/modals.js"></script>
+	<script type="text/javascript" src="app/components/controllers/home.js"></script>
+	<script type="text/javascript" src="app/components/controllers/navigation.js"></script>
+	<script type="text/javascript" src="app/components/controllers/tree-menu.js"></script>
+	<script type="text/javascript" src="app/components/controllers/common.js"></script>
+	<script type="text/javascript" src="app/components/controllers/application-settings.js"></script>
+	<script type="text/javascript" src="app/components/controllers/generic-controllers.js"></script>
+	<script type="text/javascript" src="app/components/controllers/hello.js"></script>
+	<script type="text/javascript" src="app/components/directives/fileValidator.js"></script>
+	<script type="text/javascript" src="app/components/filters/filters.js"></script>
+	<script type="text/javascript" src="app/components/filters/locale-filters.js"></script>
+	<script type="text/javascript" src="app/components/services.modals.js"></script>
+	<script type="text/javascript" src="app/components/services.auth.js"></script>
+	<script type="text/javascript" src="app/components/services.route.js"></script>
+	<script type="text/javascript" src="app/components/services.option-codes.js"></script>
+	<script type="text/javascript" src="libs/others/date-picker.js"></script>
+	<script type="text/javascript" src="libs/others/angularjs-dropdown-multiselect.min.js"></script>
+	<script type="text/javascript" src="libs/others/vkbeautify.js"></script>
+	<script type="text/javascript" src="libs/ckeditor/ckeditor.js"></script>
+
+</head>
+
+<body role="document">
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#/">Cryptogram Validation Server</a>
+		</div>
+		<div class="kona-bi"></div>
+		<div class="navbar-collapse collapse">
+			<form class="navbar-form navbar-right">
+				<div class="form-group"  ng-controller="LanguageChangeController">
+					<select class="input-sm" ng-model="language" ng-change="onChangeLang()"
+							ng-options="lang.value as lang.name for lang in langs">
+
+					</select>
+				</div>
+				<div class="form-group" ng-if="authenticated" ng-controller="navigation as nav">
+					<a  href="" ng-click="nav.logout()" class="btn btn-default">
+						<span class="glyphicon glyphicon-off"></span>
+						Logout
+					</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	</div>
+</nav>
+
+<div class="container-fluid">
+	<div class="row mainContents">
+
+		<div class="col-sm-3 col-md-2 sidebar" ng-controller="menuTreeController" ng-if="authenticated">
+
+			<abn-tree
+					tree-data="my_data"
+					tree-control="my_tree"
+					on-select="my_tree_handler(branch)"
+					expand-level="1"
+					initial-selection="">
+			</abn-tree>
+
+
+		</div>
+
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main rightContents">
+			<div ng-view class="subContents"></div>
+		</div>
+	</div>
+</div>
+<!-- /container -->
+</body>
+</html>
+

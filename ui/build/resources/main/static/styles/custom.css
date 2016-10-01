@@ -1,0 +1,42 @@
+
+.table-row {
+    background: #ffffff;
+}
+
+
+
+.table-row input, .table-row select, .table-row textarea {
+    width: 70%;
+}
+
+.table-row input[type="radio"] {
+    width: 13px;
+    height: 13px!important;
+}
+
+.table-row input, .table-row select {
+    height:24px!important;
+}
+.help-block {
+    color: #ff0e0a;
+}
+
+
+.table-row thead th{
+    background:#7995b1;
+    border-bottom:1px solid #5e748b;
+    color:#fff;
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    font-weight:normal;
+    top: 0;
+    margin-top: 10px;
+}
+
+.left{
+    text-align: left !important;
+}
+    /*.table-row thead {*/
+        /*vertical-align: top;*/
+    /*}*/

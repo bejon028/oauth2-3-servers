@@ -1,0 +1,41 @@
+<div ng-if="authenticated" class="row">
+    <h3 class="page-header">{{"TRANSACTION_LOGS_TITLE"|translate}}</h3>
+</div>
+<br />
+
+<div ng-if="authenticated" class="row" ng-hide="data.length">
+    <p>{{"NO_DATA_FOUND"|translate}}</p>
+</div>
+
+<div ng-if="authenticated" class="row" ng-show="data.length">
+    <table class="table table-bordered table-hover mt10">
+        <thead>
+        <tr class="bg-primary">
+            <th>{{"TRANSACTION_TIME"|translate}}</th>
+            <th>{{"PAN"|translate}}</th>
+            <th>{{"ATC"|translate}}</th>
+            <th>{{"TRANSACTION_TYPE"|translate}}</th>
+            <th>{{"AMOUNT"|translate}}</th>
+            <th>{{"MERCHANT_CODE"|translate}}</th>
+            <th>{{"RESULT"|translate}}</th>
+            <th>{{"CURRENCY"|translate}}</th>
+            <th>{{"DESCRIPTION"|translate}}</th>
+            <th>{{"FAILURE_REASON"|translate}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="d in data">
+            <td>{{d.tmsTransactionDateAndTime}}</td>
+            <td>{{d.tokenizedPan}}</td>
+            <td>{{d.atcValue}}</td>
+            <td>{{d.transactionType}}</td>
+            <td>{{d.amount}}</td>
+            <td>{{d.merchantCode}}</td>
+            <td>{{d.transactionResult}}</td>
+            <td>{{d.currency}}</td>
+            <td>{{d.transactionDescription}}</td>
+            <td>{{d.failureReason}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

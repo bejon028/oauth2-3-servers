@@ -1,0 +1,74 @@
+<div class="row">
+    <h3 ng-if="authenticated" class="page-header">{{config.title | translate}}</h3>
+</div>
+<br>
+
+<div ng-if="authenticated" class="row">
+    <form class="form-horizontal col-sm-6" name="mForm" ng-submit="submit(data)" novalidate>
+
+        <table class="table-row">
+            <tbody>
+
+            <tr>
+                <th>{{"PROPERTY" | translate}}<span style="color:red"> *</span></th>
+                <td>
+                    <select class="form-control input-sm"
+                            name="property"
+                            ng-model="data.property"
+                            placeholder='{{"PROPERTY" | translate}}'
+                            required
+                            maxlength="755"
+                            style="width: 100%; height: initial !important;">
+                        <option value="">{{"SELECT_PROPERTY" | translate}}</option>
+                        <option data-ng-repeat="prop in properties" value="{{prop}}">{{prop}}</option>
+                    </select>
+
+                    <p ng-show="mForm.property.$invalid && !mForm.property.$pristine" class="help-block">
+                        {{"REQUIRED_VALID_MSG" | translate}}</p>
+
+                </td>
+            </tr>
+
+            <tr>
+                <th>{{"VALUE"|translate}}<span style="color:red"> *</span></th>
+                <td>
+                    <textarea class="form-control input-sm" name="value" ng-model="data.value"
+                              placeholder='{{"VALUE"|translate}}' maxlength="255"
+                              required
+                              style="width: 100%; height: initial !important;">{{data.value}}</textarea>
+
+                    <p ng-show="mForm.value.$invalid && !mForm.value.$pristine" class="help-block">
+                        {{"REQUIRED_VALID_MSG" | translate}}</p>
+                </td>
+            </tr>
+
+            <tr>
+
+                <td colspan="2">
+
+                    <table style="margin-top: 10px;  width: 100%">
+                        <tbody>
+                        <tr>
+                            <td colspan="8" class="tr">
+
+                                <button type="submit" class="btn btn-edit"
+                                        ng-disabled="mForm.$invalid || isFormInvalid(data)">
+                                    {{"SAVE"|translate}}
+                                </button>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+
+    </form>
+</div>
+<br/>
+<div ng-include src="'app/templates/common/controls/view-list.html'"></div>

@@ -1,0 +1,235 @@
+
+/* COMMON */
+.sub-title{
+	color:#000;
+}
+.sub-title em{
+	color:#f86468;
+	padding-right:7px;
+}
+.clear{clear:both;}
+.clearAfter:after{clear:both;display:block;content:'';}
+
+.ml-18{margin-left:-18px!important;}
+.ml5{margin-left:5px!important;}
+.ml10{margin-left:10px!important;}
+.ml40{margin-left:40px!important;}
+
+.mt5{margin-top:5px!important;}
+.mt10{margin-top:10px!important;}
+.mt15{margin-top:15px!important;}
+.mt20{margin-top:20px!important;}
+.mt25{margin-top:25px!important;}
+.mt30{margin-top:30px!important;}
+.mt40{margin-top:40px!important;}
+.mt80{margin-top:80px!important;}
+
+.mb5{margin-bottom:5px!important;}
+.mb10{margin-bottom:10px!important;}
+.mb15{margin-bottom:15px!important;}
+.mb20{margin-bottom:20px!important;}
+
+.mr5{margin-right:5px!important;}
+.mr10{margin-right:10px!important;}
+.mr30{margin-right:30px!important;}
+
+.fl{float:left;}
+.fr{float:right;}
+
+.tc{text-align: center!important;}
+.tr{text-align: right!important;}
+
+.h-24{
+	height:24px!important;
+}
+
+button.btn-search{
+	color:#fff;
+	background:#425968;
+}
+/*button.btn-search:hover,
+button.btn-search:active{
+	color:#fff;
+}*/
+.table-search{
+	width:100%;
+	border-top: 1px solid #95a3ab;
+}
+
+.table-search tbody th{
+	background:#dbebf4;
+	color:#728088;
+	border-bottom:1px solid #cadae3;
+	padding:3px 8px;
+	line-height: 1.42857143;
+	font-weight:normal;
+}
+.table-search tbody td{
+	background:#fff;
+	padding:3px 8px;
+	border-bottom:1px solid #e3e3e3;
+}
+.table-row {
+	width:100%;
+	border-top: 1px solid #000;
+}
+.table-row tbody th{
+	background:#7995b1;
+	border-bottom:1px solid #5e748b;
+	color:#fff;
+	padding: 8px;
+	line-height: 1.42857143;
+	vertical-align: top;
+	font-weight:normal;
+}
+.table-row tbody td{
+	padding: 8px;
+	border-bottom:1px solid #e3e3e3;
+	background:#fff;
+}
+
+.btn-list{
+	color:#fff;
+	background:#505c78;
+	font-size:14px!important;
+	line-height:26px!important;
+	width:98px;
+}
+
+.btn-edit{
+	color:#fff;
+	background:#068797;
+	font-size:14px!important;
+	line-height:26px!important;
+	width:98px;
+}
+
+.btn-del{
+	color:#505c78;
+	background:#fff;
+	border:1px solid #d1d9de!important;
+	font-size:14px!important;
+	line-height:26px!important;
+	width:98px;
+}
+
+/*.btn-add{
+	color:#fff;
+	background:#4cb2d7;
+	font-size:14px!important;
+	line-height:26px!important;
+	width:98px;
+}*/
+.btn-add-sm{
+	color:#fff;
+	background:#8990a0;
+	font-size:12px!important;
+	padding:3px 12px 2px!important;
+}
+
+.btn-icon-sm{
+	color:#fff;
+	background:#8990a0;
+	padding:3px 8px 2px!important;
+}
+
+/* Date Picker */
+.uib-daypicker thead th{
+	padding:0;
+	margin:0;
+}
+
+.uib-daypicker tbody td{
+	padding:0;
+	margin:0;
+}
+
+.uib-daypicker tbody td button{
+	background:#fff;
+}
+.uib-daypicker tbody td button span.text-muted{
+	color:#eaeaea;
+}
+
+.uib-daypicker tbody td button .ng-binding,
+.uib-daypicker tbody td button .ng-binding:hover{
+	color:#333;
+}
+
+.uib-daypicker tbody td button.btn-info span:hover,
+.uib-daypicker tbody td button.btn-info span{
+	color:#fff;
+}
+.uib-daypicker tbody td button.active{
+	background:#2aabd2;
+	border:none;
+}
+
+.uib-daypicker tbody td button.active:hover{
+		background:#269abc;
+}
+
+.uib-daypicker tbody td button.active span:hover,
+.uib-daypicker tbody td button.active span{
+	color:#fff;
+}
+
+/*2016-04-01 Class ADD*/
+.abn-tree {
+  padding: 0!important;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    /*background-color: #95a3ab;*/
+    border-radius:0;
+}
+.glyphicon{
+	font-size:11px;
+}
+ul.nav.abn-tree .level-2 .indented{
+	left: 15px!important;
+}
+
+ul.nav.abn-tree .level-3 .indented{
+	left:30px!important;
+}
+
+.nav-pills > li > a{
+ 	color:#333;	
+}
+
+.ul.nav.abn-tree .level-3 .indented{
+ 	padding:5px 2px 5px 5px;
+}
+
+.nav-list li a span{
+	display:block;
+	margin:-20px 0 0 20px;
+	word-break:break-word;
+}
+
+/* level-1 선택시 level-2, level-3 Background, color style */
+.nav-pills > li.level-2 > a,
+.nav-pills > li.level-3 > a{
+	background:#eaeff2;
+	color:#8197a5;
+	border-radius:0;
+}
+
+/* Menu Click font-color style */
+.nav-pills > li.level-2.active > a,
+.nav-pills > li.level-2 > a:hover,
+.nav-pills > li.level-3.active > a,
+.nav-pills > li.level-3 > a:hover{
+	color:#337ab7;
+	background:#eaeff2;
+}
+
+.selected-row {
+	background: rgba(166, 212, 245, 0.45) !important;
+}
+
+.svc-sub-title{
+	font-weight:bold;
+	margin-top:15px;
+}

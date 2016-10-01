@@ -1,0 +1,22 @@
+<div>
+  {{'SHOWING'|translate}} {{$parent.startIndex}} - {{$parent.endIndex}} {{'FROM'|translate}} {{$parent.pageParams.totalItems}} {{'RESULTS'|translate}}
+</div>
+
+<div ng-show="$parent.data.length">
+  <div class="pull-left">
+    <uib-pagination total-items="$parent.pageParams.totalItems" ng-model="$parent.pageParams.curPage" max-size="10"
+                    boundary-links="true" rotate="false" ng-change="$parent.pageParamChanged()"
+                    items-per-page="$parent.pageParams.pageSize">
+    </uib-pagination>
+  </div>
+  <div class="pull-right text-right">
+    <form class="form-inline od-page-size-form">
+      <div class="form-group">
+        <label>{{'PAGE_SIZE'|translate}}: </label>
+        <input type="text" class="form-control input-sm" ng-model="inputPageSize"/>
+        <button type="button" class="btn btn-icon-sm" ng-click="$parent.setPageSize(inputPageSize)">{{'SET'|translate}}</button>
+      </div>
+    </form>
+  </div>
+  <div style="clear:both"></div>
+</div>

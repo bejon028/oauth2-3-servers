@@ -1,0 +1,60 @@
+
+<!--<form class="form-horizontal" name="mForm" ng-submit="submit()" novalidate>-->
+<!--<div class="modal-header">-->
+    <!--<h4 class="modal-title">{{"LOGIN_INFO"|translate}}</h4>-->
+<!--</div>-->
+<!--<br>-->
+<!--<div ng-class='modal-body'>-->
+        <!--<div class="form-group " ng-class="{'has-error': mForm.email.$invalid && !mForm.email.$pristine}">-->
+            <!--<label class="col-sm-3 control-label">{{"USERNAME" | translate}}</label>-->
+            <!--<div class="col-sm-6">-->
+                <!--<label class="col-sm-6 control-label">{{data.email}}</label>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="form-group " ng-class="{'has-error': mForm.email.$invalid && !mForm.email.$pristine}">-->
+            <!--<label class="col-sm-3 control-label">{{"PASSWORD" | translate}}</label>-->
+            <!--<div class="col-sm-6">-->
+                <!--<input type="password" ng-model="ReportServerPassword"/>-->
+            <!--</div>-->
+        <!--</div>-->
+<!--</div>-->
+
+
+<!--<div class="modal-footer">-->
+    <!--<a class="btn btn-primary" type="button" ng-click="close()">{{"CLOSE" | translate}}</a>-->
+    <!--<button type="submit" class="btn btn-success" ng-disabled="mForm.$invalid">{{"SUBMIT"|translate}}</button>-->
+<!--</div>-->
+
+<!--</form>-->
+
+<form class="form-horizontal" name="mForm" ng-submit="submitLoginInfo()" novalidate>
+    <div class="modal-header text-success">
+        <h3 class="modal-title">{{'LOGIN_INFO'|translate}}</h3>
+    </div>
+    <div class="modal-body">
+
+        <table class="table-row">
+            <tbody>
+            <tr>
+                <th>{{"USERNAME"|translate}}<span style="color:red"> *</span></th>
+                <td>
+                    <input type="text" class="form-control input-sm" name="username" ng-model="username" required />
+                    <p ng-show="mForm.username.$invalid && !mForm.username.$pristine" class="help-block">{{'INVALID_INPUT_FIELD_ERROR'|translate}}</p>
+                </td>
+            </tr>
+            <tr>
+                <th>{{"PASSWORD"|translate}}<span style="color:red"> *</span></th>
+                <td>
+                    <input type="password" class="form-control input-sm" name="password" ng-model="password" required=""/>
+                    <p ng-show="mForm.password.$invalid && !mForm.password.$pristine" class="help-block">{{'INVALID_INPUT_FIELD_ERROR'|translate}}</p>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-list" type="button" ng-click="close()">Close</button>
+        <button type="submit" class="btn btn-edit" type="button"  ng-disabled="mForm.$invalid" ng-click="submitLoginInfo()">{{'SUBMIT'|translate}}</button>
+    </div>
+</form>

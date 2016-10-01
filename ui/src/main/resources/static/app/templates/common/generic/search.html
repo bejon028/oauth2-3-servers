@@ -1,0 +1,27 @@
+
+<div class="row">
+    <div class="pull-right text-right">
+        <form class="form-inline">
+            <div class="form-group" ng-repeat="searchOption in searchOptions">
+                <input ng-keypress="onKeyPressForSearch($event)" ng-if="searchOption.enable && searchOption.type == 'TEXT'" type="{{searchOption.type}}" class="form-control input-sm ng-pristine ng-untouched ng-valid"
+                       placeholder="{{searchOption.placeholder | translate}}" ng-model="searchParams[searchOption.model]"/>
+                <select ng-keypress="onKeyPressForSearch($event)" ng-if="searchOption.enable && searchOption.type == 'COMBO'" class="form-control input-sm ng-pristine ng-untouched ng-valid"
+                        ng-model="searchParams[searchOption.model]" placeholder="{{searchOption.placeholder | translate}}">
+                    <option value="">All</option>
+                    <option ng-if="searchOption.type=='COMBO'" ng-repeat="option in searchOption.options" value="{{option}}">{{option}}</option>
+                </select>
+                <select ng-keypress="onKeyPressForSearch($event)" ng-if="searchOption.enable && searchOption.type == 'COMBO_PAIR'" class="form-control input-sm ng-pristine ng-untouched ng-valid"
+                        ng-model="searchParams[searchOption.model]" placeholder="{{searchOption.placeholder | translate}}">
+                    <option value="">ALL</option>
+                    <option ng-if="searchOption.type=='COMBO_PAIR'" ng-repeat="option in searchOption.options" value="{{option.key}}">{{option.value}}</option>
+                </select>
+                &nbsp;
+            </div>
+            <button type="button" class="btn  btn-icon-sm " ng-click="search()">Search</button>
+            <button type="button" class="btn  btn-icon-sm " ng-click="resetSearch()"><span
+                    class="glyphicon glyphicon-remove"></span>
+            </button>
+        </form>
+        <br/>
+    </div>
+</div>

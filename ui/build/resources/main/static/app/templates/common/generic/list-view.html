@@ -1,0 +1,51 @@
+<div class="row">
+    <h3 class="page-header"> {{title|translate}}</h3>
+</div>
+<div ng-include src="'app/templates/common/generic/add-new.html'"  ng-if="addOption"></div>
+<div class="row" ng-if="topOptionEnable">
+    <a ng-repeat="b in topOptions" ng-href="#{{basePath}}/{{b.PATH}}" class="btn btn-add-sm btn-icon-sm" style="margin-right: 5px;">
+        {{b.CAPTION|translate}}
+    </a>
+</div>
+<br />
+
+<div class="row" ng-hide="data.length">
+    <p>{{"EMPTY_LIST_MSG" | translate}}</p>
+</div>
+
+<div ng-include src="'app/templates/common/generic/search.html'" ng-if="searchOption"></div>
+
+<div class="row" ng-show="data.length">
+    <table class="table table-bordered table-hover mt10">
+        <thead>
+        <tr class="bg-primary">
+            <th ng-click="header.SORT=='enable' && sortBy(header.COLUMN)" ng-repeat="header in headers">{{header.TITLE | translate}}
+            <span ng-show="header.SORT=='enable' && sortByCol==header.COLUMN">
+                  <span class="glyphicon glyphicon-triangle-bottom" ng-show="sortOrder=='desc'"></span>
+                  <span class="glyphicon glyphicon-triangle-top" ng-show="sortOrder=='asc'"></span>
+                </span></th>
+            <th width="120px" ng-if="editOption || deleteOption || viewOption">{{"OPTIONS" | translate}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="d in data">
+            <td ng-class="header.CLASS" ng-repeat="header in headers">{{print_data(header, d)}}</td>
+            <td ng-if="editOption || deleteOption || viewOption">
+                <a class="btn  btn-icon-sm " ng-href="#{{basePath}}/edit/{{d.id}}" ng-show="editOption">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+                <button type="button" class="btn  btn-icon-sm " ng-click="onClickDelete(d.id)" ng-show="deleteOption">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+                <a class="btn  btn-icon-sm " ng-href="#{{basePath}}/view/{{d.id}}" ng-show="viewOption">
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div ng-include src="'app/templates/common/generic/pagination.html'" ng-if="paginationOption"></div>
+
+<div ng-include src="'app/templates/common/generic/add-new.html'"  ng-if="addOption" ng-show="data.length"></div>

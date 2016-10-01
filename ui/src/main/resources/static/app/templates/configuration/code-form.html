@@ -1,0 +1,99 @@
+<div class="row">
+    <h3 class="page-header" ng-if="operationName == 'add'">{{"CODE_TITLE_ADD" | translate}}</h3>
+    <h3 class="page-header" ng-if="operationName == 'edit'">{{"CODE_TITLE_EDIT" | translate}}</h3>
+</div>
+<br>
+<div class="row">
+    <form class="form-horizontal col-sm-6" name="mForm" ng-submit="submit()" novalidate>
+        <table class="table-row">
+        <tbody>
+        <tr>
+            <th class="col-sm-2">{{"CODE"|translate}}<span style="color:red"> *</span></th>
+
+            <td class="col-sm-4">
+
+                <select class="form-control input-sm" name="code1" ng-model="data.code1"
+                        ng-options="o.code3 as o.code3 for o in codes"></select>
+
+                <p ng-show="mForm.code1.$invalid && !mForm.code1.$pristine" class="help-block">{{"REQUIRED_VALID_MSG" | translate}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>{{"CODE"|translate}} 2</th>
+
+            <td>
+                <input class="form-control input-sm" name="code2" placeholder='{{"CODE"|translate}} 2' ng-model="data.code2" maxlength="100" >
+            </td>
+        </tr>
+
+        <tr>
+            <th>{{"CODE"|translate}} 3<span style="color:red"> *</span></th>
+
+            <td>
+                <textarea rows="3" class="form-control input-sm" name="code3" placeholder='{{"CODE"|translate}} 3' ng-model="data.code3" maxlength="1000" required></textarea>
+                <p ng-show="mForm.code3.$invalid && !mForm.code3.$pristine" class="help-block">{{"REQUIRED_VALID_MSG" | translate}}</p>
+            </td>
+        </tr>
+
+        <tr>
+            <th>{{"CODE_DISPLAY_NAME"|translate}}</th>
+
+            <td>
+                <textarea rows="1" class="form-control input-sm" name="codeDisplayName" placeholder='{{"CODE_DISPLAY_NAME"|translate}}' ng-model="data.codeDisplayName" maxlength="1000"></textarea>
+                <p ng-show="mForm.codeDisplayName.$invalid && !mForm.codeDisplayName.$pristine" class="help-block">{{"REQUIRED_VALID_MSG" | translate}}</p>
+            </td>
+        </tr>
+
+        <tr>
+            <th>{{"CODE_DATA"|translate}} 1</th>
+
+            <td>
+                <textarea rows="3" class="form-control input-sm" name="codeData1" placeholder='{{"CODE_DATA"|translate}} 1' ng-model="data.codeData1" maxlength="1000"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <th>{{"CODE_DATA"|translate}} 2</th>
+
+            <td>
+                <textarea rows="3" class="form-control input-sm" name="codeData2" placeholder='{{"CODE_DATA"|translate}} 2' ng-model="data.codeData2" maxlength="1000"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <th>{{"CODE_DESCRIPTION"|translate}}</th>
+
+            <td>
+                <textarea rows="3" class="form-control input-sm" name="codeDescription" placeholder='{{"CODE_DESCRIPTION"|translate}}' ng-model="data.codeDescription" maxlength="1000"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <th>{{"ALIGN_ORDER"|translate}}</th>
+
+            <td>
+                <input type="number" class="form-control input-sm" name="alignOrder" placeholder='{{"ALIGN_ORDER"|translate}}' ng-model="data.alignOrder">
+                <p ng-show="mForm.alignOrder.$invalid && !mForm.alignOrder.$pristine" class="help-block">{{"NUMBER_VALID_MSG" | translate}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>{{"ACTIVE"|translate}}<span style="color:red"> *</span></th>
+            <td>
+                <label class="radio-inline" ng-init="data.use='YES'">
+                    <input type="radio" name="use" ng-model="data.use" id="activeYes" value="YES">{{"YES"|translate}}
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="use" ng-model="data.use" id="activeNo" value="NO">{{"NO"|translate}}
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="tr">
+                <button type="submit" class="btn btn-edit" ng-disabled="mForm.$invalid">{{"SUBMIT"|translate}}
+                </button>
+            </td>
+        </tr>
+        </tbody>
+        </table>
+    </form>
+</div>
+<br/>
+<div ng-include src="'app/templates/common/controls/view-list.html'"></div>

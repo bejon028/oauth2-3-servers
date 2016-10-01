@@ -1,0 +1,38 @@
+<div class="row">
+    <h3 class="page-header">{{"MENU_TITLE_VIEW" | translate}}</h3>
+</div>
+<br>
+<div class="row">
+<table class="table-row" style="width:700px">
+    <tr>
+        <th>{{"MENU_ID"|translate}}</th>
+        <td>{{data.menuId}}</td>
+    </tr>
+    <tr>
+        <th>{{"MENU_PID"|translate}}</th>
+        <td>{{data.menuPid}}</td>
+    </tr>
+    <tr>
+        <th>{{"MENU_NAME"|translate}}</th>
+        <td>{{data.menuName}}</td>
+    </tr>
+    <tr>
+        <th>{{"MENU_EXE"|translate}}</th>
+        <td>{{data.menuExe}}</td>
+    </tr>
+    <tr>
+        <th>{{"ALIGN_ORDER"|translate}}</th>
+        <td>{{data.alignOrder}}</td>
+    </tr>
+    <tr>
+        <th>{{"ACTIVE"|translate}}</th>
+        <td>{{data.use}}</td>
+    </tr>
+    <tr>
+        <th>{{"NOTE"|translate}}</th>
+        <td>{{data.note}}</td>
+    </tr>
+</table>
+    </div>
+<br>
+<div ng-include src="'app/templates/common/controls/edit-view-list.html'"></div>

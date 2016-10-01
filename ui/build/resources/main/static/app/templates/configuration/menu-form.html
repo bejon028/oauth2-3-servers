@@ -1,0 +1,87 @@
+<div class="row">
+    <h3 class="page-header" ng-if="operationName == 'add'">{{"MENU_TITLE_ADD" | translate}}</h3>
+    <h3 class="page-header" ng-if="operationName == 'edit'">{{"MENU_TITLE_EDIT" | translate}}</h3>
+</div>
+<br>
+<div class="row">
+    <form class="form-horizontal col-sm-6" name="mForm" ng-submit="submit()" novalidate>
+        <table class="table-row">
+        <tbody>
+        <tr>
+            <th class="col-sm-2">{{"MENU_ID"|translate}}<span style="color:red"> *</span></th>
+            <td class="col-sm-4">
+                <input type="text" class="form-control" name="menuId" placeholder='{{"MENU_ID"|translate}}' ng-model="data.menuId" maxlength="100" required>
+                <p ng-show="mForm.menuId.$invalid && !mForm.menuId.$pristine" class="help-block">{{"REQUIRED_VALID_MSG" | translate}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>{{"MENU_PID"|translate}}</th>
+            <td>
+                <input type="text" class="form-control" name="menuPid" placeholder='{{"MENU_PID"|translate}}' ng-model="data.menuPid" maxlength="20">
+            </td>
+        </tr>
+        <tr>
+            <th>{{"MENU_NAME"|translate}}<span style="color:red"> *</span></th>
+            <td>
+                <input type="text" class="form-control" name="menuName" placeholder='{{"MENU_NAME"|translate}}' ng-model="data.menuName" maxlength="128" required>
+                <p ng-show="mForm.menuName.$invalid && !mForm.menuName.$pristine" class="help-block">{{"REQUIRED_VALID_MSG" | translate}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>{{"MENU_EXE"|translate}}</th>
+
+            <td>
+                <textarea rows="3" class="form-control" name="menuExe" placeholder='{{"MENU_EXE"|translate}}' ng-model="data.menuExe" maxlength="255"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <th>{{"ALIGN_ORDER"|translate}}<span style="color:red"> *</span></th>
+
+            <td>
+                <input type="text" class="form-control" name="alignOrder" placeholder='{{"ALIGN_ORDER"|translate}}' ng-model="data.alignOrder"  maxlength="10" required>
+                <p ng-show="mForm.alignOrder.$invalid && !mForm.alignOrder.$pristine" class="help-block">{{"REQUIRED_VALID_MSG" | translate}}</p>
+            </td>
+        </tr>
+        <tr>
+            <th>{{"EXTERNAL"|translate}}?</th>
+            <td>
+                <label class="radio-inline" ng-init="data.external='YES'">
+                    <input type="radio" name="external" ng-model="data.external" id="externalYes" value="YES">{{"YES"|translate}}
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="external" ng-model="data.external" id="externalNo" value="NO">{{"NO"|translate}}
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <th>{{"ACTIVE"|translate}}</th>
+            <td>
+                <label class="radio-inline" ng-init="data.use='YES'">
+                    <input type="radio" name="use" ng-model="data.use" id="activeYes" value="YES">{{"YES"|translate}}
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="use" ng-model="data.use" id="activeNo" value="NO">{{"NO"|translate}}
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <th>{{"NOTE"|translate}}</th>
+
+            <td>
+                <textarea rows="3" class="form-control" name="note" placeholder='{{"NOTE"|translate}}' ng-model="data.note" maxlength="1000"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="tr">
+                <button type="submit" class="btn btn-edit" ng-disabled="mForm.$invalid">{{"SUBMIT"|translate}}
+                </button>
+            </td>
+        </tr>
+        </tbody>
+        </table>
+    </form>
+</div>
+
+<br/>
+<div ng-include src="'app/templates/common/controls/view-list.html'"></div>
+

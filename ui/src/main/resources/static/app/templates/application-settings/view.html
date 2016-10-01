@@ -1,0 +1,29 @@
+<div class="row">
+    <h3 class="page-header">{{"APPLICATION_SETTINGS_VIEW_TITLE" | translate}}</h3>
+</div>
+
+<div class="row">
+    <table class="table-row" style="border-color:#7995b1">
+        <tbody>
+        <tr>
+            <th class="col-sm-2">{{"PROPERTY"|translate}}</th>
+            <td class="col-sm-4">
+                {{data.property}}
+            </td>
+        </tr>
+
+        <tr>
+            <th>{{"VALUE"|translate}}</th>
+            <td>
+                {{data.value}}
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+
+
+</div>
+
+<div style="margin-top:20px" ng-include src="'app/templates/common/controls/view-list.html'"></div>
